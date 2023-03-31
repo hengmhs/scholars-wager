@@ -12232,22 +12232,24 @@ class App extends React.Component {
     return (
       <div className="App">
         <div>Round {this.state.currRound} / 10</div>
-        {(this.state.currStage === 1 || this.state.currStage === 3) && (
-          <button onClick={this.nextStage}> Next Stage </button>
-        )}
         {this.state.currStage === 1 && (
           <div>
-            {this.state.currChar.hanzi}# Stage 1 - Player{" "}
-            {this.state.activePlayer} is guessing the pinyin
+            <h1>{this.state.currChar.hanzi}</h1>
+            <p>
+              Stage 1/4 - Player {this.state.activePlayer} is guessing the
+              pinyin
+            </p>
           </div>
         )}
         {this.state.currStage === 2 && (
           <div>
             <div>
-              {this.state.currChar.hanzi}
-              {this.state.currChar.pinyin} # Stage 2 - Player{" "}
-              {this.state.activePlayer} is adding or removing score based on
-              whether they guessed correctly
+              <h1>{this.state.currChar.hanzi}</h1>
+              <h1>{this.state.currChar.pinyin}</h1>
+              <p>
+                Stage 2/4 - Player {this.state.activePlayer} is adding or
+                removing score based on whether they guessed correctly
+              </p>
             </div>
             <div>
               <button onClick={this.incrementScore}> + </button>
@@ -12257,20 +12259,25 @@ class App extends React.Component {
         )}
         {this.state.currStage === 3 && (
           <div>
-            {this.state.currChar.hanzi}
-            {this.state.currChar.pinyin}
-            Stage 3 - Player {this.state.inactivePlayer} is guessing whether Player{" "}
-            {this.state.activePlayer} knows the meaning
+            <h1>{this.state.currChar.hanzi}</h1>
+            <h1>{this.state.currChar.pinyin}</h1>
+            <p>
+              Stage 3/4- Player {this.state.inactivePlayer} is guessing whether
+              Player {this.state.activePlayer} knows the meaning
+            </p>
           </div>
         )}
         {this.state.currStage === 4 && (
           <div>
             <div>
-              {this.state.currChar.hanzi}
-              {this.state.currChar.pinyin}
-              {this.formatTrans(this.state.currChar.translations)} # Stage 4 -
-              Player {this.state.activePlayer} is adding or removing score based
-              on whether they guessed the meaning correctly
+              <h1>{this.state.currChar.hanzi}</h1>
+              <h1>{this.state.currChar.pinyin}</h1>
+              <h4>{this.formatTrans(this.state.currChar.translations)}</h4>
+              <p>
+                Stage 4/4 - Player {this.state.activePlayer} is adding or
+                removing score based on whether they guessed the meaning
+                correctly
+              </p>
             </div>
             <div>
               <button onClick={this.incrementScore}> + </button>
@@ -12278,6 +12285,11 @@ class App extends React.Component {
             </div>
           </div>
         )}
+        {(this.state.currStage === 1 || this.state.currStage === 3) && (
+          <button onClick={this.nextStage}> Next Stage </button>
+        )}
+        <br />
+        <br />
         <div>Player 1 Score: {this.state.playerOneScore}</div>
         <div>Player 2 Score: {this.state.playerTwoScore}</div>
       </div>

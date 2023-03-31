@@ -12199,12 +12199,6 @@ class App extends React.Component {
     }));
   };
 
-  formatTrans = (trans) => {
-    return trans.map((text, index) => {
-      return <div key={index + text}>{text}</div>;
-    });
-  };
-
   incrementScore = (amt) => {
     if (this.state.activePlayer === 1) {
       this.setState((prevState) => ({
@@ -12239,6 +12233,7 @@ class App extends React.Component {
           currStage={this.state.currStage}
           currChar={this.state.currChar}
           activePlayer={this.state.activePlayer}
+          inactivePlayer={this.state.inactivePlayer}
         />
         {(this.state.currStage === 1 || this.state.currStage === 3) && (
           <button onClick={this.nextStage}> Next Stage </button>

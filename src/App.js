@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
+import TextDisplay from "./TextDisplay.js";
 
 class App extends React.Component {
   // TODO: add wagering system
@@ -12276,6 +12277,7 @@ class App extends React.Component {
     );
     return (
       <div className="App">
+        <TextDisplay />
         <div>Round {this.state.currRound} / 10</div>
         {stage1}
         {stage2}

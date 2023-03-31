@@ -1433,6 +1433,7 @@ class App extends React.Component {
   nextRound = () => {
     this.setState((prevState) => ({
       currRound: prevState.currRound + 1,
+      currentChar: this.getRandomChar(),
     }));
   };
 

@@ -12214,9 +12214,15 @@ class App extends React.Component {
   };
 
   decrementScore = () => {
-    this.setState((prevState) => ({
-      playerOneScore: prevState.playerOneScore - 1,
-    }));
+    if (this.state.activePlayer === 1) {
+      this.setState((prevState) => ({
+        playerOneScore: prevState.playerOneScore - 1,
+      }));
+    } else {
+      this.setState((prevState) => ({
+        playerTwoScore: prevState.playerTwoScore - 1,
+      }));
+    }
     this.nextStage();
   };
 

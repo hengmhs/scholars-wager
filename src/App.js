@@ -12249,22 +12249,6 @@ class App extends React.Component {
             score based on whether they guessed correctly
           </p>
         </div>
-        <div>
-          <button
-            onClick={() => {
-              this.incrementScore(this.state.wager);
-            }}
-          >
-            Add {this.state.wager}
-          </button>
-          <button
-            onClick={() => {
-              this.decrementScore(this.state.wager);
-            }}
-          >
-            Minus {this.state.wager}
-          </button>
-        </div>
       </div>
     );
     const stage3 = this.state.currStage === 3 && (
@@ -12288,22 +12272,6 @@ class App extends React.Component {
             score based on whether they guessed the meaning correctly
           </p>
         </div>
-        <div>
-          <button
-            onClick={() => {
-              this.incrementScore(this.state.wager);
-            }}
-          >
-            Add {this.state.wager}
-          </button>
-          <button
-            onClick={() => {
-              this.decrementScore(this.state.wager);
-            }}
-          >
-            Minus {this.state.wager}
-          </button>
-        </div>
       </div>
     );
     return (
@@ -12316,10 +12284,29 @@ class App extends React.Component {
         {(this.state.currStage === 1 || this.state.currStage === 3) && (
           <button onClick={this.nextStage}> Next Stage </button>
         )}
+
         <br />
         <br />
         <div>Player 1 Score: {this.state.playerOneScore}</div>
         <div>Player 2 Score: {this.state.playerTwoScore}</div>
+        {(this.state.currStage === 2 || this.state.currStage === 4) && (
+          <div>
+            <button
+              onClick={() => {
+                this.incrementScore(this.state.wager);
+              }}
+            >
+              Add {this.state.wager}
+            </button>
+            <button
+              onClick={() => {
+                this.decrementScore(this.state.wager);
+              }}
+            >
+              Minus {this.state.wager}
+            </button>
+          </div>
+        )}
       </div>
     );
   }

@@ -5,6 +5,7 @@ import React from "react";
 class App extends React.Component {
   constructor(props) {
     super(props);
+    // assign currentChar to an object with null properties because the render() function tries to read it when the component mounts and will crash if it cannot read anything
     this.state = {
       HSKLevel1: [
         {
@@ -1390,13 +1391,32 @@ class App extends React.Component {
       currRound: 1,
       playerOneScore: 0,
       playerTwoScore: 0,
+      currentChar: {
+        id: null,
+        hanzi: null,
+        pinyin: null,
+        translations: null,
+      },
     };
   }
+
+  // get a random character
+  componentDidMount = () => {
+    this.setState(() => ({
+      currentChar: this.getRandomChar(),
+    }));
+  };
+
+  getRandomChar = () => {
+    const index = Math.floor(Math.random() * this.state.HSKLevel1.length);
+    return this.state.HSKLevel1[index];
+  };
 
   nextStage = async () => {
     let currStage = this.state.currStage + 1;
     if (currStage >= 5) {
       currStage = 1;
+      this.nextRound();
     }
     this.setState(() => ({
       currStage: currStage,
@@ -1411,10 +1431,9 @@ class App extends React.Component {
   };
 
   nextRound = () => {
-    /* this.setState((prevState) => ({
+    this.setState((prevState) => ({
       currRound: prevState.currRound + 1,
-    }));*/
-    this.incrementScore();
+    }));
   };
 
   incrementScore = () => {
@@ -1431,25 +1450,24 @@ class App extends React.Component {
         <button onClick={this.incrementScore}> Player 1 Add Score </button>
         {this.state.currStage >= 1 ? (
           <div>
-            {this.state.HSKLevel1[0].hanzi} # Stage 1 - Player 1 is guessing the
+            {this.state.currentChar.hanzi} # Stage 1 - Player 1 is guessing the
             pinyin
           </div>
         ) : null}
         {this.state.currStage >= 2 ? (
           <div>
-            {this.state.HSKLevel1[0].pinyin} # Stage 2 - Player 1 is adding or
+            {this.state.currentChar.pinyin} # Stage 2 - Player 1 is adding or
             removing score based on whether they guessed correctly
           </div>
         ) : null}
         {this.state.currStage >= 3 ? (
           <div>
-            {this.state.HSKLevel1[0].pinyin} # Stage 3 - Player 2 is guessing
-            whether Player 1 knows the meaning
+            # Stage 3 - Player 2 is guessing whether Player 1 knows the meaning
           </div>
         ) : null}
         {this.state.currStage >= 4 ? (
           <div>
-            {this.formatTrans(this.state.HSKLevel1[0].translations)} # Stage 4 -
+            {this.formatTrans(this.state.currentChar.translations)} # Stage 4 -
             Player 1 is adding or removing score based on whether they guessed
             the meaning correctly
           </div>

@@ -1387,6 +1387,9 @@ class App extends React.Component {
         },
       ],
       currStage: 1,
+      currRound: 1,
+      playerOneScore: 0,
+      playerTwoScore: 0,
     };
   }
 
@@ -1396,11 +1399,30 @@ class App extends React.Component {
     });
   };
 
+  formatTrans = (trans) => {
+    return trans.map((text, index) => {
+      return <div key={index + text}>{text}</div>;
+    });
+  };
+
+  nextRound = () => {
+    this.setState({
+      currRound: this.state.currRound + 1,
+    });
+  };
+
+  incrementScore = () => {
+    this.setState({
+      playerOneScore: this.state.playerOneScore + 1,
+    });
+  };
+
   render() {
-    const displayStage = () => {};
     return (
       <div className="App">
+        <div>Round {this.state.currRound} / 10</div>
         <button onClick={this.moveNextStage}> Next Stage </button>
+        <button onClick={this.incrementScore}> Player 1 Add Score </button>
         {this.state.currStage >= 1 ? (
           <div>{this.state.HSKLevel1[0].hanzi}</div>
         ) : null}
@@ -1408,8 +1430,10 @@ class App extends React.Component {
           <div>{this.state.HSKLevel1[0].pinyin}</div>
         ) : null}
         {this.state.currStage >= 3 ? (
-          <div>{this.state.HSKLevel1[0].translations}</div>
+          <div>{this.formatTrans(this.state.HSKLevel1[0].translations)}</div>
         ) : null}
+        <div>Player 1 Score: {this.state.playerOneScore}</div>
+        <div>Player 2 Score: {this.state.playerTwoScore}</div>
       </div>
     );
   }

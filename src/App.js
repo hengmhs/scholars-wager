@@ -5,6 +5,7 @@ import React from "react";
 class App extends React.Component {
   // TODO: change active player between player 1 and player 2
   // TODO: add wagering system
+  // TODO: add game over
   // TODO: Add bootstrap or material UI
 
   constructor(props) {
@@ -12149,6 +12150,7 @@ class App extends React.Component {
         pinyin: null,
         translations: null,
       },
+      activePlayer: 1,
     };
   }
 
@@ -12170,6 +12172,15 @@ class App extends React.Component {
     if (currStage >= 5) {
       currStage = 1;
       this.nextRound();
+      if (this.state.activePlayer === 1) {
+        this.setState({
+          activePlayer: 2,
+        });
+      } else {
+        this.setState({
+          activePlayer: 1,
+        });
+      }
     }
     this.setState(() => ({
       currStage: currStage,
@@ -12190,9 +12201,15 @@ class App extends React.Component {
   };
 
   incrementScore = () => {
-    this.setState((prevState) => ({
-      playerOneScore: prevState.playerOneScore + 1,
-    }));
+    if (this.state.activePlayer === 1) {
+      this.setState((prevState) => ({
+        playerOneScore: prevState.playerOneScore + 1,
+      }));
+    } else {
+      this.setState((prevState) => ({
+        playerTwoScore: prevState.playerTwoScore + 1,
+      }));
+    }
     this.nextStage();
   };
 
@@ -12212,16 +12229,17 @@ class App extends React.Component {
         )}
         {this.state.currStage === 1 && (
           <div>
-            {this.state.currChar.hanzi} # Stage 1 - Player 1 is guessing the
-            pinyin
+            {this.state.currChar.hanzi}# Stage 1 - Player{" "}
+            {this.state.activePlayer} is guessing the pinyin
           </div>
         )}
         {this.state.currStage === 2 && (
           <div>
             <div>
               {this.state.currChar.hanzi}
-              {this.state.currChar.pinyin} # Stage 2 - Player 1 is adding or
-              removing score based on whether they guessed correctly
+              {this.state.currChar.pinyin} # Stage 2 - Player{" "}
+              {this.state.activePlayer} is adding or removing score based on
+              whether they guessed correctly
             </div>
             <div>
               <button onClick={this.incrementScore}> + </button>
@@ -12233,7 +12251,8 @@ class App extends React.Component {
           <div>
             {this.state.currChar.hanzi}
             {this.state.currChar.pinyin}
-            Stage 3 - Player 2 is guessing whether Player 1 knows the meaning
+            Stage 3 - The other player is guessing whether Player{" "}
+            {this.state.activePlayer} knows the meaning
           </div>
         )}
         {this.state.currStage === 4 && (
@@ -12242,8 +12261,8 @@ class App extends React.Component {
               {this.state.currChar.hanzi}
               {this.state.currChar.pinyin}
               {this.formatTrans(this.state.currChar.translations)} # Stage 4 -
-              Player 1 is adding or removing score based on whether they guessed
-              the meaning correctly
+              Player {this.state.activePlayer} is adding or removing score based
+              on whether they guessed the meaning correctly
             </div>
             <div>
               <button onClick={this.incrementScore}> + </button>

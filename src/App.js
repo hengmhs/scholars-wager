@@ -12151,6 +12151,7 @@ class App extends React.Component {
       },
       activePlayer: 1,
       inactivePlayer: 2,
+      wager: 5,
     };
   }
 
@@ -12202,45 +12203,45 @@ class App extends React.Component {
     });
   };
 
-  incrementScore = () => {
+  incrementScore = (amt) => {
     if (this.state.activePlayer === 1) {
       this.setState((prevState) => ({
-        playerOneScore: prevState.playerOneScore + 1,
+        playerOneScore: prevState.playerOneScore + amt,
       }));
     } else {
       this.setState((prevState) => ({
-        playerTwoScore: prevState.playerTwoScore + 1,
+        playerTwoScore: prevState.playerTwoScore + amt,
       }));
     }
     this.nextStage();
   };
 
-  decrementScore = () => {
+  decrementScore = (amt) => {
     if (this.state.activePlayer === 1) {
       this.setState((prevState) => ({
-        playerOneScore: prevState.playerOneScore - 1,
+        playerOneScore: prevState.playerOneScore - amt,
       }));
     } else {
       this.setState((prevState) => ({
-        playerTwoScore: prevState.playerTwoScore - 1,
+        playerTwoScore: prevState.playerTwoScore - amt,
       }));
     }
     this.nextStage();
   };
 
   render() {
+    const stage1 = this.state.currStage === 1 && (
+      <div>
+        <h1>{this.state.currChar.hanzi}</h1>
+        <p>
+          Stage 1/4 - Player {this.state.activePlayer} is guessing the pinyin
+        </p>
+      </div>
+    );
     return (
       <div className="App">
         <div>Round {this.state.currRound} / 10</div>
-        {this.state.currStage === 1 && (
-          <div>
-            <h1>{this.state.currChar.hanzi}</h1>
-            <p>
-              Stage 1/4 - Player {this.state.activePlayer} is guessing the
-              pinyin
-            </p>
-          </div>
-        )}
+        {stage1}
         {this.state.currStage === 2 && (
           <div>
             <div>
@@ -12252,8 +12253,20 @@ class App extends React.Component {
               </p>
             </div>
             <div>
-              <button onClick={this.incrementScore}> + </button>
-              <button onClick={this.decrementScore}> - </button>
+              <button
+                onClick={() => {
+                  this.incrementScore(this.state.wager);
+                }}
+              >
+                Add {this.state.wager}
+              </button>
+              <button
+                onClick={() => {
+                  this.decrementScore(this.state.wager);
+                }}
+              >
+                Minus {this.state.wager}
+              </button>
             </div>
           </div>
         )}
@@ -12280,8 +12293,20 @@ class App extends React.Component {
               </p>
             </div>
             <div>
-              <button onClick={this.incrementScore}> + </button>
-              <button onClick={this.decrementScore}> - </button>
+              <button
+                onClick={() => {
+                  this.incrementScore(this.state.wager);
+                }}
+              >
+                Add {this.state.wager}
+              </button>
+              <button
+                onClick={() => {
+                  this.decrementScore(this.state.wager);
+                }}
+              >
+                Minus {this.state.wager}
+              </button>
             </div>
           </div>
         )}

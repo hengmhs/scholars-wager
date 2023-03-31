@@ -3,7 +3,6 @@ import "./App.css";
 import React from "react";
 
 class App extends React.Component {
-  // TODO: change active player between player 1 and player 2
   // TODO: add wagering system
   // TODO: add game over
   // TODO: Add bootstrap or material UI
@@ -12151,6 +12150,7 @@ class App extends React.Component {
         translations: null,
       },
       activePlayer: 1,
+      inactivePlayer: 2,
     };
   }
 
@@ -12175,10 +12175,12 @@ class App extends React.Component {
       if (this.state.activePlayer === 1) {
         this.setState({
           activePlayer: 2,
+          inactivePlayer: 1,
         });
       } else {
         this.setState({
           activePlayer: 1,
+          inactivePlayer: 2,
         });
       }
     }
@@ -12257,7 +12259,7 @@ class App extends React.Component {
           <div>
             {this.state.currChar.hanzi}
             {this.state.currChar.pinyin}
-            Stage 3 - The other player is guessing whether Player{" "}
+            Stage 3 - Player {this.state.inactivePlayer} is guessing whether Player{" "}
             {this.state.activePlayer} knows the meaning
           </div>
         )}

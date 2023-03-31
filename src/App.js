@@ -12152,6 +12152,7 @@ class App extends React.Component {
       activePlayer: 1,
       inactivePlayer: 2,
       wager: 1,
+      gameIsRunning: true,
     };
   }
 

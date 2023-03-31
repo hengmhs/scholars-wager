@@ -12238,78 +12238,80 @@ class App extends React.Component {
         </p>
       </div>
     );
+    const stage2 = this.state.currStage === 2 && (
+      <div>
+        <div>
+          <h1>{this.state.currChar.hanzi}</h1>
+          <h1>{this.state.currChar.pinyin}</h1>
+          <p>
+            Stage 2/4 - Player {this.state.activePlayer} is adding or removing
+            score based on whether they guessed correctly
+          </p>
+        </div>
+        <div>
+          <button
+            onClick={() => {
+              this.incrementScore(this.state.wager);
+            }}
+          >
+            Add {this.state.wager}
+          </button>
+          <button
+            onClick={() => {
+              this.decrementScore(this.state.wager);
+            }}
+          >
+            Minus {this.state.wager}
+          </button>
+        </div>
+      </div>
+    );
+    const stage3 = this.state.currStage === 3 && (
+      <div>
+        <h1>{this.state.currChar.hanzi}</h1>
+        <h1>{this.state.currChar.pinyin}</h1>
+        <p>
+          Stage 3/4- Player {this.state.inactivePlayer} is guessing whether
+          Player {this.state.activePlayer} knows the meaning
+        </p>
+      </div>
+    );
+    const stage4 = this.state.currStage === 4 && (
+      <div>
+        <div>
+          <h1>{this.state.currChar.hanzi}</h1>
+          <h1>{this.state.currChar.pinyin}</h1>
+          <h4>{this.formatTrans(this.state.currChar.translations)}</h4>
+          <p>
+            Stage 4/4 - Player {this.state.activePlayer} is adding or removing
+            score based on whether they guessed the meaning correctly
+          </p>
+        </div>
+        <div>
+          <button
+            onClick={() => {
+              this.incrementScore(this.state.wager);
+            }}
+          >
+            Add {this.state.wager}
+          </button>
+          <button
+            onClick={() => {
+              this.decrementScore(this.state.wager);
+            }}
+          >
+            Minus {this.state.wager}
+          </button>
+        </div>
+      </div>
+    );
     return (
       <div className="App">
         <div>Round {this.state.currRound} / 10</div>
         {stage1}
-        {this.state.currStage === 2 && (
-          <div>
-            <div>
-              <h1>{this.state.currChar.hanzi}</h1>
-              <h1>{this.state.currChar.pinyin}</h1>
-              <p>
-                Stage 2/4 - Player {this.state.activePlayer} is adding or
-                removing score based on whether they guessed correctly
-              </p>
-            </div>
-            <div>
-              <button
-                onClick={() => {
-                  this.incrementScore(this.state.wager);
-                }}
-              >
-                Add {this.state.wager}
-              </button>
-              <button
-                onClick={() => {
-                  this.decrementScore(this.state.wager);
-                }}
-              >
-                Minus {this.state.wager}
-              </button>
-            </div>
-          </div>
-        )}
-        {this.state.currStage === 3 && (
-          <div>
-            <h1>{this.state.currChar.hanzi}</h1>
-            <h1>{this.state.currChar.pinyin}</h1>
-            <p>
-              Stage 3/4- Player {this.state.inactivePlayer} is guessing whether
-              Player {this.state.activePlayer} knows the meaning
-            </p>
-          </div>
-        )}
-        {this.state.currStage === 4 && (
-          <div>
-            <div>
-              <h1>{this.state.currChar.hanzi}</h1>
-              <h1>{this.state.currChar.pinyin}</h1>
-              <h4>{this.formatTrans(this.state.currChar.translations)}</h4>
-              <p>
-                Stage 4/4 - Player {this.state.activePlayer} is adding or
-                removing score based on whether they guessed the meaning
-                correctly
-              </p>
-            </div>
-            <div>
-              <button
-                onClick={() => {
-                  this.incrementScore(this.state.wager);
-                }}
-              >
-                Add {this.state.wager}
-              </button>
-              <button
-                onClick={() => {
-                  this.decrementScore(this.state.wager);
-                }}
-              >
-                Minus {this.state.wager}
-              </button>
-            </div>
-          </div>
-        )}
+        {stage2}
+        {stage3}
+        {stage4}
         {(this.state.currStage === 1 || this.state.currStage === 3) && (
           <button onClick={this.nextStage}> Next Stage </button>
         )}

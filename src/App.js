@@ -5,7 +5,7 @@ import React from "react";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    // assign currentChar to an object with null properties because the render() function tries to read it when the component mounts and will crash if it cannot read anything
+    // assign currChar to an object with null properties because the render() function tries to read it when the component mounts and will crash if it cannot read anything
     this.state = {
       HSKLevel1: [
         {
@@ -1391,7 +1391,7 @@ class App extends React.Component {
       currRound: 1,
       playerOneScore: 0,
       playerTwoScore: 0,
-      currentChar: {
+      currChar: {
         id: null,
         hanzi: null,
         pinyin: null,
@@ -1403,7 +1403,7 @@ class App extends React.Component {
   // get a random character
   componentDidMount = () => {
     this.setState(() => ({
-      currentChar: this.getRandomChar(),
+      currChar: this.getRandomChar(),
     }));
   };
 
@@ -1412,6 +1412,7 @@ class App extends React.Component {
     return this.state.HSKLevel1[index];
   };
 
+  // 1 Round is made up of 4 stages (Wager Pinyin, Increment/Decrement Score, Wager Meaning, Increment/Decrement Score), 1 game is made up of 10 rounds
   nextStage = async () => {
     let currStage = this.state.currStage + 1;
     if (currStage >= 5) {
@@ -1421,7 +1422,13 @@ class App extends React.Component {
     this.setState(() => ({
       currStage: currStage,
     }));
-    this.incrementScore();
+  };
+
+  nextRound = () => {
+    this.setState((prevState) => ({
+      currRound: prevState.currRound + 1,
+      currChar: this.getRandomChar(),
+    }));
   };
 
   formatTrans = (trans) => {
@@ -1430,49 +1437,68 @@ class App extends React.Component {
     });
   };
 
-  nextRound = () => {
-    this.setState((prevState) => ({
-      currRound: prevState.currRound + 1,
-      currentChar: this.getRandomChar(),
-    }));
-  };
-
   incrementScore = () => {
     this.setState((prevState) => ({
       playerOneScore: prevState.playerOneScore + 1,
     }));
+    this.nextStage();
+  };
+
+  decrementScore = () => {
+    this.setState((prevState) => ({
+      playerOneScore: prevState.playerOneScore - 1,
+    }));
+    this.nextStage();
   };
 
   render() {
     return (
       <div className="App">
         <div>Round {this.state.currRound} / 10</div>
-        <button onClick={this.nextStage}> Next Stage </button>
-        <button onClick={this.incrementScore}> Player 1 Add Score </button>
-        {this.state.currStage >= 1 ? (
+        {(this.state.currStage === 1 || this.state.currStage === 3) && (
+          <button onClick={this.nextStage}> Next Stage </button>
+        )}
+        {this.state.currStage === 1 && (
           <div>
-            {this.state.currentChar.hanzi} # Stage 1 - Player 1 is guessing the
+            {this.state.currChar.hanzi} # Stage 1 - Player 1 is guessing the
             pinyin
           </div>
-        ) : null}
-        {this.state.currStage >= 2 ? (
+        )}
+        {this.state.currStage === 2 && (
           <div>
-            {this.state.currentChar.pinyin} # Stage 2 - Player 1 is adding or
-            removing score based on whether they guessed correctly
+            <div>
+              {this.state.currChar.hanzi}
+              {this.state.currChar.pinyin} # Stage 2 - Player 1 is adding or
+              removing score based on whether they guessed correctly
+            </div>
+            <div>
+              <button onClick={this.incrementScore}> + </button>
+              <button onClick={this.decrementScore}> - </button>
+            </div>
           </div>
-        ) : null}
-        {this.state.currStage >= 3 ? (
+        )}
+        {this.state.currStage === 3 && (
           <div>
-            # Stage 3 - Player 2 is guessing whether Player 1 knows the meaning
+            {this.state.currChar.hanzi}
+            {this.state.currChar.pinyin}
+            Stage 3 - Player 2 is guessing whether Player 1 knows the meaning
           </div>
-        ) : null}
-        {this.state.currStage >= 4 ? (
+        )}
+        {this.state.currStage === 4 && (
           <div>
-            {this.formatTrans(this.state.currentChar.translations)} # Stage 4 -
-            Player 1 is adding or removing score based on whether they guessed
-            the meaning correctly
+            <div>
+              {this.state.currChar.hanzi}
+              {this.state.currChar.pinyin}
+              {this.formatTrans(this.state.currChar.translations)} # Stage 4 -
+              Player 1 is adding or removing score based on whether they guessed
+              the meaning correctly
+            </div>
+            <div>
+              <button onClick={this.incrementScore}> + </button>
+              <button onClick={this.decrementScore}> - </button>
+            </div>
           </div>
-        ) : null}
+        )}
         <div>Player 1 Score: {this.state.playerOneScore}</div>
         <div>Player 2 Score: {this.state.playerTwoScore}</div>
       </div>

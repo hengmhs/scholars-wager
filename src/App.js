@@ -12246,9 +12246,6 @@ class App extends React.Component {
               activePlayer={this.state.activePlayer}
               inactivePlayer={this.state.inactivePlayer}
             />
-            {/*(this.state.currStage === 1 || this.state.currStage === 3) && (
-              <button onClick={this.nextStage}> Next Stage </button>
-            )*/}
             <NextStageButtons
               currStage={this.state.currStage}
               nextStage={() => {

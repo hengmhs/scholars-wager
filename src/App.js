@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
 import TextDisplay from "./TextDisplay.js";
+import NextStageButtons from "./NextStageButtons";
 
 class App extends React.Component {
   // TODO: add wagering system
@@ -12245,10 +12246,15 @@ class App extends React.Component {
               activePlayer={this.state.activePlayer}
               inactivePlayer={this.state.inactivePlayer}
             />
-            {(this.state.currStage === 1 || this.state.currStage === 3) && (
+            {/*(this.state.currStage === 1 || this.state.currStage === 3) && (
               <button onClick={this.nextStage}> Next Stage </button>
-            )}
-
+            )*/}
+            <NextStageButtons
+              currStage={this.state.currStage}
+              nextStage={() => {
+                this.nextStage();
+              }}
+            />
             <br />
             <br />
 

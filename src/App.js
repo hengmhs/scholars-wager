@@ -12193,10 +12193,18 @@ class App extends React.Component {
   };
 
   nextRound = () => {
-    this.setState((prevState) => ({
-      currRound: prevState.currRound + 1,
-      currChar: this.getRandomChar(),
-    }));
+    const finalRound = this.state.currRound + 1;
+    if (finalRound >= 10) {
+      this.setState((prevState) => ({
+        currRound: prevState.currRound + 1,
+        gameIsRunning: false,
+      }));
+    } else {
+      this.setState((prevState) => ({
+        currRound: prevState.currRound + 1,
+        currChar: this.getRandomChar(),
+      }));
+    }
   };
 
   incrementScore = (amt) => {
@@ -12228,39 +12236,44 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <div>Round {this.state.currRound} / 10</div>
-        <TextDisplay
-          currStage={this.state.currStage}
-          currChar={this.state.currChar}
-          activePlayer={this.state.activePlayer}
-          inactivePlayer={this.state.inactivePlayer}
-        />
-        {(this.state.currStage === 1 || this.state.currStage === 3) && (
-          <button onClick={this.nextStage}> Next Stage </button>
-        )}
+        {this.state.gameIsRunning && (
+          <div className="game">
+            <div>Round {this.state.currRound} / 10</div>
+            <TextDisplay
+              currStage={this.state.currStage}
+              currChar={this.state.currChar}
+              activePlayer={this.state.activePlayer}
+              inactivePlayer={this.state.inactivePlayer}
+            />
+            {(this.state.currStage === 1 || this.state.currStage === 3) && (
+              <button onClick={this.nextStage}> Next Stage </button>
+            )}
 
-        <br />
-        <br />
-        <div>Player 1 Score: {this.state.playerOneScore}</div>
-        <div>Player 2 Score: {this.state.playerTwoScore}</div>
-        {(this.state.currStage === 2 || this.state.currStage === 4) && (
-          <div>
-            <button
-              onClick={() => {
-                this.incrementScore(this.state.wager);
-              }}
-            >
-              Add {this.state.wager}
-            </button>
-            <button
-              onClick={() => {
-                this.decrementScore(this.state.wager);
-              }}
-            >
-              Minus {this.state.wager}
-            </button>
+            <br />
+            <br />
+
+            {(this.state.currStage === 2 || this.state.currStage === 4) && (
+              <div>
+                <button
+                  onClick={() => {
+                    this.incrementScore(this.state.wager);
+                  }}
+                >
+                  Add {this.state.wager}
+                </button>
+                <button
+                  onClick={() => {
+                    this.decrementScore(this.state.wager);
+                  }}
+                >
+                  Minus {this.state.wager}
+                </button>
+              </div>
+            )}
           </div>
         )}
+        <div>Player 1 Score: {this.state.playerOneScore}</div>
+        <div>Player 2 Score: {this.state.playerTwoScore}</div>
       </div>
     );
   }

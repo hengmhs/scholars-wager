@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "react-bootstrap/Button";
 
 class NextStageButtons extends React.Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class NextStageButtons extends React.Component {
   render() {
     return (
       (this.props.currStage === 1 || this.props.currStage === 3) && (
-        <button onClick={this.props.nextStage}> Next Stage </button>
+        <Button onClick={this.props.nextStage}> Next Stage </Button>
       )
     );
   }

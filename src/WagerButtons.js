@@ -11,7 +11,7 @@ class WagerButtons extends React.Component {
   render() {
     if (this.props.currStage === 2 || this.props.currStage === 4) {
       return (
-        <div>
+        <div className="wager-btn-container">
           <Button
             variant="success"
             onClick={() => {

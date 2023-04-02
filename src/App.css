@@ -12,3 +12,9 @@ body {
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.wager-btn-container {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+}

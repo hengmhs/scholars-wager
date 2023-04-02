@@ -6,7 +6,11 @@ import NextStageButtons from "./NextStageButtons";
 import WagerButtons from "./WagerButtons";
 
 class App extends React.Component {
-  // TODO: Limit maximum and minimum wager
+  // TODO: Limit maximum and minimum wager with warning about minimum and maximum
+  // TODO: Restart Game
+  // TODO: Menu System - Differing HSK Levels
+  // OPTIONAL TODO: Seen words placed in localStorage
+  // OPTIONAL TODO: Add fireworks.js https://github.com/crashmax-dev/fireworks-js/
 
   constructor(props) {
     super(props);

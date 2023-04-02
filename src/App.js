@@ -12143,7 +12143,7 @@ class App extends React.Component {
         },
       ],
       currStage: 1,
-      currRound: 1,
+      currRound: 9,
       playerOneScore: 0,
       playerTwoScore: 0,
       currChar: {
@@ -12285,6 +12285,7 @@ class App extends React.Component {
             />
           </div>
         )}
+        {!this.state.gameIsRunning && <div>Game Over</div>}
         <br />
         <br />
         <div>Player 1 Score: {this.state.playerOneScore}</div>

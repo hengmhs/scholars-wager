@@ -1,4 +1,6 @@
 import React from "react";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import Button from "react-bootstrap/Button";
 
 class WagerButtons extends React.Component {
   constructor(props) {
@@ -10,20 +12,22 @@ class WagerButtons extends React.Component {
     if (this.props.currStage === 2 || this.props.currStage === 4) {
       return (
         <div>
-          <button
+          <Button
+            variant="success"
             onClick={() => {
               this.props.incrementScore();
             }}
           >
             Add {this.props.wager}
-          </button>
-          <button
+          </Button>
+          <Button
+            variant="danger"
             onClick={() => {
               this.props.decrementScore();
             }}
           >
             Minus {this.props.wager}
-          </button>
+          </Button>
         </div>
       );
     }
@@ -31,20 +35,24 @@ class WagerButtons extends React.Component {
       return (
         <div>
           <div>Wager: {this.props.wager}</div>
-          <button
-            onClick={() => {
-              this.props.incrementWager();
-            }}
-          >
-            +
-          </button>
-          <button
-            onClick={() => {
-              this.props.decrementWager();
-            }}
-          >
-            -
-          </button>
+          <ButtonGroup aria-label="wager-buttons">
+            <Button
+              variant="secondary"
+              onClick={() => {
+                this.props.incrementWager();
+              }}
+            >
+              +
+            </Button>
+            <Button
+              variant="secondary"
+              onClick={() => {
+                this.props.decrementWager();
+              }}
+            >
+              -
+            </Button>
+          </ButtonGroup>
         </div>
       );
     }

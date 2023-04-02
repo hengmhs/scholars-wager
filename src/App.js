@@ -6,9 +6,7 @@ import NextStageButtons from "./NextStageButtons";
 import WagerButtons from "./WagerButtons";
 
 class App extends React.Component {
-  // TODO: add wagering system
-  // TODO: add game over
-  // TODO: Add bootstrap or material UI
+  // TODO: Limit maximum and minimum wager
 
   constructor(props) {
     super(props);
@@ -12259,14 +12257,6 @@ class App extends React.Component {
               activePlayer={this.state.activePlayer}
               inactivePlayer={this.state.inactivePlayer}
             />
-            <NextStageButtons
-              currStage={this.state.currStage}
-              nextStage={() => {
-                this.nextStage();
-              }}
-            />
-            <br />
-            <br />
             <WagerButtons
               currStage={this.state.currStage}
               incrementScore={() => {
@@ -12281,6 +12271,13 @@ class App extends React.Component {
               }}
               decrementWager={() => {
                 this.decrementWager();
+              }}
+            />
+            <br />
+            <NextStageButtons
+              currStage={this.state.currStage}
+              nextStage={() => {
+                this.nextStage();
               }}
             />
           </div>

@@ -3,6 +3,7 @@ import "./App.css";
 import React from "react";
 import TextDisplay from "./TextDisplay.js";
 import NextStageButtons from "./NextStageButtons";
+import WagerButtons from "./WagerButtons";
 
 class App extends React.Component {
   // TODO: add wagering system
@@ -12254,25 +12255,15 @@ class App extends React.Component {
             />
             <br />
             <br />
-
-            {(this.state.currStage === 2 || this.state.currStage === 4) && (
-              <div>
-                <button
-                  onClick={() => {
-                    this.incrementScore(this.state.wager);
-                  }}
-                >
-                  Add {this.state.wager}
-                </button>
-                <button
-                  onClick={() => {
-                    this.decrementScore(this.state.wager);
-                  }}
-                >
-                  Minus {this.state.wager}
-                </button>
-              </div>
-            )}
+            <WagerButtons
+              currStage={this.state.currStage}
+              incrementScore={() => {
+                this.incrementScore(this.state.wager);
+              }}
+              decrementScore={() => {
+                this.decrementcore(this.state.wager);
+              }}
+            />
           </div>
         )}
         <div>Player 1 Score: {this.state.playerOneScore}</div>

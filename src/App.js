@@ -12235,6 +12235,18 @@ class App extends React.Component {
     this.nextStage();
   };
 
+  incrementWager = () => {
+    this.setState({
+      wager: this.state.wager + 1,
+    });
+  };
+
+  decrementWager = () => {
+    this.setState({
+      wager: this.state.wager - 1,
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -12261,11 +12273,20 @@ class App extends React.Component {
                 this.incrementScore(this.state.wager);
               }}
               decrementScore={() => {
-                this.decrementcore(this.state.wager);
+                this.decrementScore(this.state.wager);
+              }}
+              wager={this.state.wager}
+              incrementWager={() => {
+                this.incrementWager();
+              }}
+              decrementWager={() => {
+                this.decrementWager();
               }}
             />
           </div>
         )}
+        <br />
+        <br />
         <div>Player 1 Score: {this.state.playerOneScore}</div>
         <div>Player 2 Score: {this.state.playerTwoScore}</div>
       </div>

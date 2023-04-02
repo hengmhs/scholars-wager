@@ -27,6 +27,27 @@ class WagerButtons extends React.Component {
         </div>
       );
     }
+    if (this.props.currStage === 1 || this.props.currStage === 3) {
+      return (
+        <div>
+          <div>Wager: {this.props.wager}</div>
+          <button
+            onClick={() => {
+              this.props.incrementWager();
+            }}
+          >
+            +
+          </button>
+          <button
+            onClick={() => {
+              this.props.decrementWager();
+            }}
+          >
+            -
+          </button>
+        </div>
+      );
+    }
   }
 }
 

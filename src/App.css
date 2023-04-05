@@ -18,3 +18,9 @@ body {
   gap: 1em;
   justify-content: center;
 }
+
+.level-select-container {
+  display: flex;
+  gap: 0.5em;
+  flex-direction: column;
+}

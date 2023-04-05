@@ -31118,14 +31118,24 @@ class App extends React.Component {
   };
 
   incrementWager = () => {
+    let wager = this.state.wager + 1;
+    // loop back to 1 when you increase your wager above 10
+    if (wager > 10) {
+      wager = 1;
+    }
     this.setState({
-      wager: this.state.wager + 1,
+      wager: wager,
     });
   };
 
   decrementWager = () => {
+    let wager = this.state.wager - 1;
+    // loop back to 10 when you decrease your wager below 1
+    if (wager < 1) {
+      wager = 10;
+    }
     this.setState({
-      wager: this.state.wager - 1,
+      wager: wager,
     });
   };
 

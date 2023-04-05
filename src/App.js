@@ -30,12 +30,7 @@ class App extends React.Component {
   };
 
   render() {
-    let mainDisplay;
-    if (this.state.isMenuDisplayed) {
-      mainDisplay = <Menu startGame={this.startGame} />;
-    } else {
-      mainDisplay = <Game />;
-    }
+    let mainDisplay = <Menu />;
     return mainDisplay;
   }
 }

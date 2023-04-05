@@ -3,6 +3,7 @@ import React from "react";
 import TextDisplay from "./TextDisplay.js";
 import NextStageButtons from "./NextStageButtons";
 import WagerButtons from "./WagerButtons";
+import HSKSelect from "./HSKSelect";
 
 class Game extends React.Component {
   // TODO: getRandomChar does not choose words that already have been chosen
@@ -31036,6 +31037,8 @@ class Game extends React.Component {
       inactivePlayer: 2,
       wager: 1,
       gameIsRunning: true,
+      displayLevelSelect: true,
+      displayGame: false,
     };
   }
 
@@ -31140,7 +31143,7 @@ class Game extends React.Component {
   render() {
     return (
       <div className="App">
-        {this.state.gameIsRunning && (
+        {this.state.gameIsRunning && this.state.displayGame && (
           <div className="game">
             <div>Round {this.state.currRound} / 10</div>
             <TextDisplay
@@ -31174,7 +31177,10 @@ class Game extends React.Component {
             />
           </div>
         )}
-        {!this.state.gameIsRunning && <div>Game Over</div>}
+        {!this.state.gameIsRunning && this.state.displayGame && (
+          <div>Game Over</div>
+        )}
+        {this.state.displayLevelSelect && <HSKSelect />}
         <br />
         <br />
         <div>Player 1 Score: {this.state.playerOneScore}</div>

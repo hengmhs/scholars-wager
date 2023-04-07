@@ -1,5 +1,6 @@
 import "./App.css";
 import React from "react";
+import Button from "react-bootstrap/Button";
 import TextDisplay from "./TextDisplay.js";
 import NextStageButtons from "./NextStageButtons";
 import WagerButtons from "./WagerButtons";
@@ -160,6 +161,21 @@ class Game extends React.Component {
     });
   };
 
+  resetGame = () => {
+    this.setState({
+      displayGame: false,
+      gameIsRunning: true,
+      displayLevelSelect: true,
+      playerOneScore: 0,
+      playerTwoScore: 0,
+      currStage: 1,
+      currRound: 1,
+      activePlayer: 1,
+      inactivePlayer: 2,
+      wager: 1,
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -199,7 +215,10 @@ class Game extends React.Component {
           </div>
         )}
         {!this.state.gameIsRunning && this.state.displayGame && (
-          <div>Game Over</div>
+          <div>
+            <h1>Game Over</h1>
+            <Button onClick={this.resetGame}>New Game</Button>
+          </div>
         )}
         {this.state.displayLevelSelect && (
           <HSKSelect

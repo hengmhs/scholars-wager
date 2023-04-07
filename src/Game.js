@@ -40,6 +40,7 @@ class Game extends React.Component {
       displayLevelSelect: true,
       displayGame: false,
       currLevel: 1,
+      seenWordsThisGame: [],
       HSKLevels: [
         HSKLevel1,
         HSKLevel2,
@@ -53,17 +54,18 @@ class Game extends React.Component {
     };
   }
 
-  // get a random character
-  componentDidMount = () => {
-    this.setState(() => ({
-      currChar: this.getRandomChar(),
-    }));
-  };
-
   getRandomChar = () => {
-    const index = Math.floor(
+    let index = Math.floor(
       Math.random() * this.state.HSKLevels[this.state.currLevel - 1].length
     );
+    while (this.state.seenWordsThisGame.includes(index)) {
+      index = Math.floor(
+        Math.random() * this.state.HSKLevels[this.state.currLevel - 1].length
+      );
+    }
+    this.setState({
+      seenWordsThisGame: [...this.state.seenWordsThisGame, index],
+    });
     return this.state.HSKLevels[this.state.currLevel - 1][index];
   };
 
@@ -158,6 +160,7 @@ class Game extends React.Component {
       displayGame: true,
       displayLevelSelect: false,
       currLevel: level,
+      currChar: this.getRandomChar(),
     });
   };
 

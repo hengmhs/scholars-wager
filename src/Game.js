@@ -40,7 +40,7 @@ class Game extends React.Component {
       displayLevelSelect: true,
       displayGame: false,
       currLevel: 1,
-      seenWordsThisGame: [],
+      seenIds: [],
       HSKLevels: [
         HSKLevel1,
         HSKLevel2,
@@ -58,15 +58,23 @@ class Game extends React.Component {
     let index = Math.floor(
       Math.random() * this.state.HSKLevels[this.state.currLevel - 1].length
     );
-    while (this.state.seenWordsThisGame.includes(index)) {
+    while (
+      this.state.seenIds.includes(
+        this.state.HSKLevels[this.state.currLevel - 1][index].id
+      )
+    ) {
       index = Math.floor(
         Math.random() * this.state.HSKLevels[this.state.currLevel - 1].length
       );
     }
-    this.setState({
-      seenWordsThisGame: [...this.state.seenWordsThisGame, index],
-    });
+    console.log(this.state.HSKLevels[this.state.currLevel - 1][index].id);
     return this.state.HSKLevels[this.state.currLevel - 1][index];
+  };
+
+  addIdToSeenIds = (id) => {
+    this.setState({
+      seenIds: [...this.state.seenIds, id],
+    });
   };
 
   // 1 Round is made up of 4 stages (Wager Pinyin, Increment/Decrement Score, Wager Meaning, Increment/Decrement Score), 1 game is made up of 10 rounds
@@ -100,10 +108,15 @@ class Game extends React.Component {
         gameIsRunning: false,
       }));
     } else {
-      this.setState((prevState) => ({
-        currRound: prevState.currRound + 1,
-        currChar: this.getRandomChar(),
-      }));
+      this.setState(
+        (prevState) => ({
+          currRound: prevState.currRound + 1,
+          currChar: this.getRandomChar(),
+        }),
+        () => {
+          this.addIdToSeenIds(this.state.currChar.id);
+        }
+      );
     }
   };
 
@@ -156,12 +169,17 @@ class Game extends React.Component {
   };
 
   startGame = (level) => {
-    this.setState({
-      displayGame: true,
-      displayLevelSelect: false,
-      currLevel: level,
-      currChar: this.getRandomChar(),
-    });
+    this.setState(
+      {
+        displayGame: true,
+        displayLevelSelect: false,
+        currLevel: level,
+        currChar: this.getRandomChar(),
+      },
+      () => {
+        this.addIdToSeenIds(this.state.currChar.id);
+      }
+    );
   };
 
   resetGame = () => {

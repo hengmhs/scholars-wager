@@ -13,10 +13,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 class App extends React.Component {
-  // TODO: getRandomChar does not choose words that already have been chosen
-  // TODO: Restart Game
-  // TODO: Menu System - Differing HSK Levels
-  // OPTIONAL TODO: Seen words placed in localStorage
   // OPTIONAL TODO: Add fireworks.js https://github.com/crashmax-dev/fireworks-js/
 
   constructor(props) {

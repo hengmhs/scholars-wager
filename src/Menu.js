@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import HSKSelect from "./HSKSelect";
+import Revision from "./Revision";
 import Game from "./Game";
 
 class Menu extends React.Component {
@@ -33,13 +33,22 @@ class Menu extends React.Component {
     });
   };
 
+  startRevision = () => {
+    this.setState({
+      isMainMenu: false,
+      gameIsRunning: false,
+      isLevelSelectScreen: false,
+      isRevision: true,
+    });
+  };
+
   render() {
     let mainMenu = (
       <div>
         <h1>Main Menu</h1>
         <div className="level-select-container">
           <Button onClick={this.startGame}>Start Game</Button>
-          <Button>Revision</Button>
+          <Button onClick={this.startRevision}>Revision</Button>
           <Button>Instructions</Button>
         </div>
       </div>
@@ -48,6 +57,7 @@ class Menu extends React.Component {
       <div>
         {this.state.isMainMenu && mainMenu}
         {this.state.gameIsRunning && <Game />}
+        {this.state.isRevision && <Revision />}
       </div>
     );
   }

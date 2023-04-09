@@ -112,9 +112,11 @@ class Menu extends React.Component {
         {this.state.isRevision && (
           <Revision revisionWords={this.state.revisionWords} />
         )}
-        <Button onClick={this.goToMainMenu} className="btn btn-dark">
-          Main Menu
-        </Button>
+        <div>
+          <Button onClick={this.goToMainMenu} className="btn btn-dark">
+            Main Menu
+          </Button>
+        </div>
       </div>
     );
   }

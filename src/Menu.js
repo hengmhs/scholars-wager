@@ -37,7 +37,11 @@ class Menu extends React.Component {
     let mainMenu = (
       <div>
         <h1>Main Menu</h1>
-        <Button onClick={this.startGame}>Start Game</Button>
+        <div className="level-select-container">
+          <Button onClick={this.startGame}>Start Game</Button>
+          <Button>Revision</Button>
+          <Button>Instructions</Button>
+        </div>
       </div>
     );
     return (

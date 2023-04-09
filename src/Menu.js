@@ -63,8 +63,6 @@ class Menu extends React.Component {
         {this.props.gameIsRunning && (
           <Game
             addRevisionWord={(currChar) => {
-              console.log("processing currChar in prop function");
-              console.log(currChar);
               this.addRevisionWord(currChar);
             }}
           />

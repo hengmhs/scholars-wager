@@ -5,12 +5,15 @@ import TextDisplay from "./TextDisplay.js";
 import NextStageButtons from "./NextStageButtons";
 import WagerButtons from "./WagerButtons";
 import HSKSelect from "./HSKSelect";
+import Player from "./Player";
 import HSKLevel1 from "./json/hsk-level-1.json";
 import HSKLevel2 from "./json/hsk-level-2.json";
 import HSKLevel3 from "./json/hsk-level-3.json";
 import HSKLevel4 from "./json/hsk-level-4.json";
 import HSKLevel5 from "./json/hsk-level-5.json";
 import HSKLevel6 from "./json/hsk-level-6.json";
+import owl from "./owl-portrait.png";
+import crow from "./crow-portrait.png";
 
 class Game extends React.Component {
   // TODO: getRandomChar does not choose words that already have been chosen
@@ -210,7 +213,7 @@ class Game extends React.Component {
         {this.state.gameIsRunning && this.state.displayGame && (
           <div className="game">
             <div>Round {this.state.currRound} / 10</div>
-            <div>HSK Level {this.state.currLevel}</div>
+            <div>Chinese Proficiency Level {this.state.currLevel}</div>
             <TextDisplay
               currStage={this.state.currStage}
               currChar={this.state.currChar}
@@ -240,16 +243,44 @@ class Game extends React.Component {
                 this.nextStage();
               }}
             />
-            <div>Player 1 Score: {this.state.playerOneScore}</div>
-            <div>Player 2 Score: {this.state.playerTwoScore}</div>
+            <div className="player-container">
+              <Player
+                currStage={this.state.currStage}
+                playerScore={this.state.playerOneScore}
+                playerPhoto={owl}
+                playerPosition={1}
+                activePlayer={this.state.activePlayer}
+              />
+              <Player
+                currStage={this.state.currStage}
+                playerScore={this.state.playerTwoScore}
+                playerPhoto={crow}
+                playerPosition={2}
+                activePlayer={this.state.activePlayer}
+              />
+            </div>
           </div>
         )}
         {!this.state.gameIsRunning && this.state.displayGame && (
           <div>
             <h1>Game Over</h1>
             <Button onClick={this.resetGame}>New Game</Button>
-            <div>Player 1 Score: {this.state.playerOneScore}</div>
-            <div>Player 2 Score: {this.state.playerTwoScore}</div>
+            <div className="player-container">
+              <Player
+                currStage={this.state.currStage}
+                playerScore={this.state.playerOneScore}
+                playerPhoto={owl}
+                playerPosition={1}
+                activePlayer={this.state.activePlayer}
+              />
+              <Player
+                currStage={this.state.currStage}
+                playerScore={this.state.playerTwoScore}
+                playerPhoto={crow}
+                playerPosition={2}
+                activePlayer={this.state.activePlayer}
+              />
+            </div>
           </div>
         )}
         {this.state.displayLevelSelect && (

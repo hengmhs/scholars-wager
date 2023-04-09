@@ -11,38 +11,38 @@ class HSKSelect extends React.Component {
   render() {
     return (
       <div>
-        <h1>HSK Level Select</h1>
+        <h1>Chinese Proficiency (HSK) Contest</h1>
         <Container className="level-select-container">
           <Row>
             <Col lg={4}>
-              <Button onClick={this.props.chooseLevel1}>HSK Level 1</Button>
+              <Button onClick={this.props.chooseLevel1}>Level 1</Button>
               <div>150 words</div>
               <div>Basic words & phrases</div>
             </Col>
             <Col lg={4}>
-              <Button onClick={this.props.chooseLevel2}>HSK Level 2</Button>
+              <Button onClick={this.props.chooseLevel2}>Level 2</Button>
               <div>150 words</div>
               <div>Communicate simply</div>
             </Col>
             <Col lg={4}>
-              <Button onClick={this.props.chooseLevel3}>HSK Level 3</Button>
+              <Button onClick={this.props.chooseLevel3}>Level 3</Button>
               <div>300 words</div>
               <div>Daily life & work communication</div>
             </Col>
           </Row>
           <Row>
             <Col lg={4}>
-              <Button onClick={this.props.chooseLevel4}>HSK Level 4</Button>
+              <Button onClick={this.props.chooseLevel4}>Level 4</Button>
               <div>600 words</div>
               <div>Discuss a wide range of topics</div>
             </Col>
             <Col lg={4}>
-              <Button onClick={this.props.chooseLevel5}>HSK Level 5</Button>
+              <Button onClick={this.props.chooseLevel5}>Level 5</Button>
               <div>1300 words</div>
               <div>Understand media & deliver a speech</div>
             </Col>
             <Col lg={4}>
-              <Button onClick={this.props.chooseLevel6}>HSK Level 6</Button>
+              <Button onClick={this.props.chooseLevel6}>Level 6</Button>
               <div>2500 words</div>
               <div>Native understanding & fluent expression</div>
             </Col>

@@ -75,3 +75,28 @@
   background-color: #2e384e;
   box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
 }
+
+.portrait {
+  border-radius: 50%;
+  max-height: 15vh;
+  max-width: 15vw;
+}
+
+.selected {
+  box-shadow: 0em 0em 1em #f7bd1d;
+}
+
+.deselected {
+  filter: grayscale(100%);
+  filter: brightness(50%);
+}
+
+.score {
+  margin: 1em;
+}
+
+.player-container {
+  display: flex;
+  margin-top: 5vh;
+  justify-content: center;
+}

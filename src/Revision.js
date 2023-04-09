@@ -14,7 +14,9 @@ class Revision extends React.Component {
         <Accordion.Item eventKey={entry.id} key={entry.id}>
           <Accordion.Header>{entry.hanzi}</Accordion.Header>
           <Accordion.Body>
-            <div>{entry.pinyin}</div>
+            <div>
+              <b>{entry.pinyin}</b>
+            </div>
             <ol>
               {entry.translations.map((line) => {
                 return <li>{line}</li>;

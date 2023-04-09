@@ -7,19 +7,10 @@ class Menu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isMainMenu: true,
-      gameIsRunning: false,
       HSKLevel: null,
       revisionWords: JSON.parse(localStorage.revisionWords),
     };
   }
-
-  goToLevelSelectScreen = () => {
-    this.setState({
-      isMainMenu: false,
-      isLevelSelectScreen: true,
-    });
-  };
 
   chooseLevel = (num) => {
     this.setState({
@@ -88,7 +79,7 @@ class Menu extends React.Component {
     );
     return (
       <div>
-        {this.state.isMainMenu && mainMenu}
+        {this.props.isMainMenu && mainMenu}
         {this.state.gameIsRunning && (
           <Game
             addRevisionWord={(currChar) => {

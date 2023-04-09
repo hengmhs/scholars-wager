@@ -16,7 +16,23 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      isMainMenu: true,
+      gameIsRunning: false,
+      isLevelSelectScreen: false,
+      isRevision: false,
+      HSKLevel: null,
+    };
   }
+
+  goToMainMenu = () => {
+    this.setState({
+      isMainMenu: true,
+      gameIsRunning: false,
+      isLevelSelectScreen: false,
+      isRevision: false,
+    });
+  };
 
   render() {
     return (
@@ -29,7 +45,7 @@ class App extends React.Component {
           </Button>
         </div>
         <div className="main-display">
-          <Menu />
+          <Menu isMainMenu={this.state.isMainMenu} />
         </div>
       </div>
     );

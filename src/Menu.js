@@ -62,6 +62,15 @@ class Menu extends React.Component {
     });
   };
 
+  goToMainMenu = () => {
+    this.setState({
+      isMainMenu: true,
+      gameIsRunning: false,
+      isLevelSelectScreen: false,
+      isRevision: false,
+    });
+  };
+
   addRevisionWord = (newEntry) => {
     console.log("processing new entry in add Revision Word");
     const identicalWords = this.state.revisionWords.filter((entry) => {
@@ -103,6 +112,9 @@ class Menu extends React.Component {
         {this.state.isRevision && (
           <Revision revisionWords={this.state.revisionWords} />
         )}
+        <Button onClick={this.goToMainMenu} className="btn btn-dark">
+          Main Menu
+        </Button>
       </div>
     );
   }

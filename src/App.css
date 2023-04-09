@@ -82,13 +82,27 @@
   max-width: 15vw;
 }
 
+.large-portrait {
+  border-radius: 50%;
+  max-height: 30vh;
+  max-width: 30vw;
+  margin: 5vh;
+}
+
+.victory {
+  box-shadow: 0em 0em 10em #f7bd1d;
+  transition: 5s;
+}
+
 .selected {
   box-shadow: 0em 0em 1em #f7bd1d;
+  transition: 1s;
 }
 
 .deselected {
   filter: grayscale(100%);
   filter: brightness(50%);
+  transition: 1s;
 }
 
 .score {

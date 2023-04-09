@@ -14,12 +14,9 @@ import HSKLevel5 from "./json/hsk-level-5.json";
 import HSKLevel6 from "./json/hsk-level-6.json";
 import owl from "./owl-portrait.png";
 import crow from "./crow-portrait.png";
+import GameOverScreen from "./GameOverScreen";
 
 class Game extends React.Component {
-  // TODO: getRandomChar does not choose words that already have been chosen
-  // TODO: Restart Game
-  // TODO: Menu System - Differing HSK Levels
-  // OPTIONAL TODO: Seen words placed in localStorage
   // OPTIONAL TODO: Add fireworks.js https://github.com/crashmax-dev/fireworks-js/
 
   constructor(props) {
@@ -27,7 +24,7 @@ class Game extends React.Component {
     // assign currChar to an object with null properties because the render() function tries to read it when the component mounts and will crash if it cannot read anything
     this.state = {
       currStage: 1,
-      currRound: 1,
+      currRound: 10,
       playerOneScore: 0,
       playerTwoScore: 0,
       currChar: {
@@ -52,8 +49,6 @@ class Game extends React.Component {
         HSKLevel5,
         HSKLevel6,
       ],
-      // create HSK array HSKLevel[0,1,2,3,4,5]
-      // getRandomChar this.state.HSKLevel[currLevel][index]
     };
   }
 
@@ -264,23 +259,13 @@ class Game extends React.Component {
         {!this.state.gameIsRunning && this.state.displayGame && (
           <div>
             <h1>Game Over</h1>
+            <GameOverScreen
+              playerOneScore={this.state.playerOneScore}
+              playerTwoScore={this.state.playerTwoScore}
+              playerOnePhoto={owl}
+              playerTwoPhoto={crow}
+            />
             <Button onClick={this.resetGame}>New Game</Button>
-            <div className="player-container">
-              <Player
-                currStage={this.state.currStage}
-                playerScore={this.state.playerOneScore}
-                playerPhoto={owl}
-                playerPosition={1}
-                activePlayer={this.state.activePlayer}
-              />
-              <Player
-                currStage={this.state.currStage}
-                playerScore={this.state.playerTwoScore}
-                playerPhoto={crow}
-                playerPosition={2}
-                activePlayer={this.state.activePlayer}
-              />
-            </div>
           </div>
         )}
         {this.state.displayLevelSelect && (

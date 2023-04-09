@@ -67,7 +67,6 @@ class Game extends React.Component {
         Math.random() * this.state.HSKLevels[this.state.currLevel - 1].length
       );
     }
-    console.log(this.state.HSKLevels[this.state.currLevel - 1][index].id);
     return this.state.HSKLevels[this.state.currLevel - 1][index];
   };
 
@@ -78,7 +77,7 @@ class Game extends React.Component {
   };
 
   // 1 Round is made up of 4 stages (Wager Pinyin, Increment/Decrement Score, Wager Meaning, Increment/Decrement Score), 1 game is made up of 10 rounds
-  nextStage = async () => {
+  nextStage = () => {
     let currStage = this.state.currStage + 1;
     if (currStage >= 5) {
       currStage = 1;
@@ -102,11 +101,17 @@ class Game extends React.Component {
 
   nextRound = () => {
     const finalRound = this.state.currRound + 1;
-    if (finalRound >= 10) {
-      this.setState((prevState) => ({
-        currRound: prevState.currRound + 1,
-        gameIsRunning: false,
-      }));
+    const oldChar = this.state.currChar;
+    if (finalRound > 10) {
+      this.setState(
+        (prevState) => ({
+          currRound: prevState.currRound + 1,
+          gameIsRunning: false,
+        }),
+        () => {
+          this.props.addRevisionWord(oldChar);
+        }
+      );
     } else {
       this.setState(
         (prevState) => ({
@@ -115,6 +120,7 @@ class Game extends React.Component {
         }),
         () => {
           this.addIdToSeenIds(this.state.currChar.id);
+          this.props.addRevisionWord(oldChar);
         }
       );
     }
@@ -194,6 +200,7 @@ class Game extends React.Component {
       activePlayer: 1,
       inactivePlayer: 2,
       wager: 1,
+      seenIds: [],
     });
   };
 

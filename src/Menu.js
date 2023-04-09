@@ -10,6 +10,7 @@ class Menu extends React.Component {
       isMainMenu: true,
       gameIsRunning: false,
       HSKLevel: null,
+      revisionWords: [],
     };
   }
 
@@ -42,6 +43,21 @@ class Menu extends React.Component {
     });
   };
 
+  addRevisionWord = (newEntry) => {
+    console.log("processing new entry in add Revision Word");
+    const identicalWords = this.state.revisionWords.filter((entry) => {
+      if (newEntry.id === entry.id) {
+        return entry;
+      }
+    });
+    console.log(`identicalWords length is ${identicalWords.length}`);
+    if (!identicalWords.length) {
+      this.setState({
+        revisionWords: [...this.state.revisionWords, newEntry],
+      });
+    }
+  };
+
   render() {
     let mainMenu = (
       <div>
@@ -56,7 +72,15 @@ class Menu extends React.Component {
     return (
       <div>
         {this.state.isMainMenu && mainMenu}
-        {this.state.gameIsRunning && <Game />}
+        {this.state.gameIsRunning && (
+          <Game
+            addRevisionWord={(currChar) => {
+              console.log("processing currChar in prop function");
+              console.log(currChar);
+              this.addRevisionWord(currChar);
+            }}
+          />
+        )}
         {this.state.isRevision && <Revision />}
       </div>
     );

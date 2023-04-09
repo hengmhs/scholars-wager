@@ -25,7 +25,7 @@ class HSKSelect extends React.Component {
           </div>
           <Button onClick={this.props.chooseLevel6}>HSK Level 6</Button>
           <div>
-            2500 words - Easily understand and express yourself smoothly
+            2500 words - Easily understand and express yourself fluently
           </div>
         </div>
       </div>

@@ -27,24 +27,24 @@ class HSKSelect extends React.Component {
             <Col lg={4}>
               <Button onClick={this.props.chooseLevel3}>HSK Level 3</Button>
               <div>300 words</div>
-              <div>Basic life, academic and work communication</div>
+              <div>Daily life & work communication</div>
             </Col>
           </Row>
           <Row>
             <Col lg={4}>
               <Button onClick={this.props.chooseLevel4}>HSK Level 4</Button>
               <div>600 words</div>
-              <div>Discuss about a wide range of topics</div>
+              <div>Discuss a wide range of topics</div>
             </Col>
             <Col lg={4}>
               <Button onClick={this.props.chooseLevel5}>HSK Level 5</Button>
               <div>1300 words</div>
-              <div>Understand media and deliver a speech</div>
+              <div>Understand media & deliver a speech</div>
             </Col>
             <Col lg={4}>
               <Button onClick={this.props.chooseLevel6}>HSK Level 6</Button>
               <div>2500 words</div>
-              <div>High level of understanding and fluent expression</div>
+              <div>Native understanding & fluent expression</div>
             </Col>
           </Row>
         </Container>

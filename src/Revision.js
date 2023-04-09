@@ -25,7 +25,7 @@ class Revision extends React.Component {
       );
     });
     return (
-      <div>
+      <div className="revision">
         <h1>Revision</h1>
         <Accordion alwaysOpen>{words}</Accordion>
       </div>

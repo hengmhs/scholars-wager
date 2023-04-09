@@ -69,20 +69,16 @@ class App extends React.Component {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-        <Container fluid>
-          <Row>
-            <Col lg={2}></Col>
-            <Col lg={8} className="main-display">
-              <Menu
-                isMainMenu={this.state.isMainMenu}
-                gameIsRunning={this.state.gameIsRunning}
-                isRevision={this.state.isRevision}
-                startGame={this.startGame}
-                startRevision={this.startRevision}
-              />
-              <Col lg={2}></Col>
-            </Col>
-          </Row>
+        <Container className="main-container">
+          <div className="main-display">
+            <Menu
+              isMainMenu={this.state.isMainMenu}
+              gameIsRunning={this.state.gameIsRunning}
+              isRevision={this.state.isRevision}
+              startGame={this.startGame}
+              startRevision={this.startRevision}
+            />
+          </div>
         </Container>
       </div>
     );

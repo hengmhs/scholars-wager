@@ -45,10 +45,14 @@ class Menu extends React.Component {
   render() {
     let mainMenu = (
       <div>
-        <div className="level-select-container">
-          <Button onClick={this.props.startGame}>Start Game</Button>
-          <Button onClick={this.props.startRevision}>Revision</Button>
-          <Button>Instructions</Button>
+        <div className="option-select-container">
+          <Button variant="warning" onClick={this.props.startGame}>
+            Start Game
+          </Button>
+          <Button variant="secondary" onClick={this.props.startRevision}>
+            Revision
+          </Button>
+          <Button variant="secondary">Instructions</Button>
         </div>
       </div>
     );

@@ -8,24 +8,28 @@ class Revision extends React.Component {
     super(props);
   }
   render() {
-    const revisionWordsLocalStorage = JSON.parse(localStorage.revisionWords);
-    const words = revisionWordsLocalStorage.map((entry) => {
-      return (
-        <Accordion.Item eventKey={entry.id} key={entry.id}>
-          <Accordion.Header>{entry.hanzi}</Accordion.Header>
-          <Accordion.Body>
-            <div>
-              <b>{entry.pinyin}</b>
-            </div>
-            <ol>
-              {entry.translations.map((line) => {
-                return <li>{line}</li>;
-              })}
-            </ol>
-          </Accordion.Body>
-        </Accordion.Item>
-      );
-    });
+    let words =
+      "You have not seen any words yet. Play the game to see your words here.";
+    if (localStorage.revisionWords) {
+      const revisionWordsLocalStorage = JSON.parse(localStorage.revisionWords);
+      words = revisionWordsLocalStorage.map((entry) => {
+        return (
+          <Accordion.Item eventKey={entry.id} key={entry.id}>
+            <Accordion.Header>{entry.hanzi}</Accordion.Header>
+            <Accordion.Body>
+              <div>
+                <b>{entry.pinyin}</b>
+              </div>
+              <ol>
+                {entry.translations.map((line) => {
+                  return <li>{line}</li>;
+                })}
+              </ol>
+            </Accordion.Body>
+          </Accordion.Item>
+        );
+      });
+    }
     return (
       <div className="revision">
         <h1>Revision</h1>

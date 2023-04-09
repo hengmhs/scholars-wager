@@ -8,9 +8,15 @@ class Menu extends React.Component {
     super(props);
     this.state = {
       HSKLevel: null,
-      revisionWords: JSON.parse(localStorage.revisionWords),
+      revisionWords: this.getRevisionWords(),
     };
   }
+
+  getRevisionWords = () => {
+    if (localStorage.revisionWords) {
+      return JSON.parse(localStorage.revisionWords);
+    }
+  };
 
   chooseLevel = (num) => {
     this.setState({
@@ -19,20 +25,35 @@ class Menu extends React.Component {
   };
 
   addRevisionWord = (newEntry) => {
-    console.log("processing new entry in add Revision Word");
-    const identicalWords = this.state.revisionWords.filter((entry) => {
-      if (newEntry.id === entry.id) {
-        return entry;
+    if (this.state.revisionWords) {
+      const identicalWords = this.state.revisionWords.filter((entry) => {
+        if (newEntry.id === entry.id) {
+          return entry;
+        }
+      });
+      // if there are no identical words
+      if (!identicalWords.length) {
+        this.setState(
+          {
+            revisionWords: [...this.state.revisionWords, newEntry],
+          },
+          () => {
+            localStorage.setItem(
+              "revisionWords",
+              JSON.stringify(this.state.revisionWords)
+            );
+          }
+        );
       }
-    });
-    console.log(`identicalWords length is ${identicalWords.length}`);
-    if (!identicalWords.length) {
+    } else {
+      console.log(
+        "there is nothing in revision words, adding newEntry to revisionWords"
+      );
       this.setState(
         {
-          revisionWords: [...this.state.revisionWords, newEntry],
+          revisionWords: [newEntry],
         },
         () => {
-          console.log(JSON.stringify(this.state.revisionWords));
           localStorage.setItem(
             "revisionWords",
             JSON.stringify(this.state.revisionWords)

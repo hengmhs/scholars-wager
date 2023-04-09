@@ -18,31 +18,6 @@ class Menu extends React.Component {
     });
   };
 
-  startGame = () => {
-    this.setState({
-      isMainMenu: false,
-      gameIsRunning: true,
-    });
-  };
-
-  startRevision = () => {
-    this.setState({
-      isMainMenu: false,
-      gameIsRunning: false,
-      isLevelSelectScreen: false,
-      isRevision: true,
-    });
-  };
-
-  goToMainMenu = () => {
-    this.setState({
-      isMainMenu: true,
-      gameIsRunning: false,
-      isLevelSelectScreen: false,
-      isRevision: false,
-    });
-  };
-
   addRevisionWord = (newEntry) => {
     console.log("processing new entry in add Revision Word");
     const identicalWords = this.state.revisionWords.filter((entry) => {
@@ -71,8 +46,8 @@ class Menu extends React.Component {
     let mainMenu = (
       <div>
         <div className="level-select-container">
-          <Button onClick={this.startGame}>Start Game</Button>
-          <Button onClick={this.startRevision}>Revision</Button>
+          <Button onClick={this.props.startGame}>Start Game</Button>
+          <Button onClick={this.props.startRevision}>Revision</Button>
           <Button>Instructions</Button>
         </div>
       </div>
@@ -80,7 +55,7 @@ class Menu extends React.Component {
     return (
       <div>
         {this.props.isMainMenu && mainMenu}
-        {this.state.gameIsRunning && (
+        {this.props.gameIsRunning && (
           <Game
             addRevisionWord={(currChar) => {
               console.log("processing currChar in prop function");
@@ -89,7 +64,7 @@ class Menu extends React.Component {
             }}
           />
         )}
-        {this.state.isRevision && (
+        {this.props.isRevision && (
           <Revision revisionWords={this.state.revisionWords} />
         )}
       </div>

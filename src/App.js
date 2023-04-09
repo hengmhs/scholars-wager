@@ -34,6 +34,22 @@ class App extends React.Component {
     });
   };
 
+  startGame = () => {
+    this.setState({
+      isMainMenu: false,
+      gameIsRunning: true,
+    });
+  };
+
+  startRevision = () => {
+    this.setState({
+      isMainMenu: false,
+      gameIsRunning: false,
+      isLevelSelectScreen: false,
+      isRevision: true,
+    });
+  };
+
   render() {
     return (
       <div className="app">
@@ -45,7 +61,13 @@ class App extends React.Component {
           </Button>
         </div>
         <div className="main-display">
-          <Menu isMainMenu={this.state.isMainMenu} />
+          <Menu
+            isMainMenu={this.state.isMainMenu}
+            gameIsRunning={this.state.gameIsRunning}
+            isRevision={this.state.isRevision}
+            startGame={this.startGame}
+            startRevision={this.startRevision}
+          />
         </div>
       </div>
     );

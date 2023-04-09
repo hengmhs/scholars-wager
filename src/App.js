@@ -5,6 +5,7 @@ import NextStageButtons from "./NextStageButtons";
 import WagerButtons from "./WagerButtons";
 import Game from "./Game";
 import Menu from "./Menu";
+import Button from "react-bootstrap/Button";
 
 class App extends React.Component {
   // TODO: getRandomChar does not choose words that already have been chosen
@@ -15,23 +16,23 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-    // assign currChar to an object with null properties because the render() function tries to read it when the component mounts and will crash if it cannot read anything
-    this.state = {
-      isGameDisplayed: false,
-      isMenuDisplayed: true,
-    };
   }
 
-  startGame = () => {
-    this.setState({
-      isGameDisplayed: true,
-      isMenuDisplayed: false,
-    });
-  };
-
   render() {
-    let mainDisplay = <Menu />;
-    return mainDisplay;
+    return (
+      <div className="app">
+        {" "}
+        <div className="header">
+          <div>Scholar's Wager</div>
+          <Button onClick={this.goToMainMenu} className="btn btn-dark">
+            Main Menu
+          </Button>
+        </div>
+        <div className="main-display">
+          <Menu />
+        </div>
+      </div>
+    );
   }
 }
 

@@ -79,7 +79,6 @@ class Menu extends React.Component {
   render() {
     let mainMenu = (
       <div>
-        <h1>Main Menu</h1>
         <div className="level-select-container">
           <Button onClick={this.startGame}>Start Game</Button>
           <Button onClick={this.startRevision}>Revision</Button>
@@ -102,11 +101,6 @@ class Menu extends React.Component {
         {this.state.isRevision && (
           <Revision revisionWords={this.state.revisionWords} />
         )}
-        <div>
-          <Button onClick={this.goToMainMenu} className="btn btn-dark">
-            Main Menu
-          </Button>
-        </div>
       </div>
     );
   }

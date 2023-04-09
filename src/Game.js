@@ -240,12 +240,16 @@ class Game extends React.Component {
                 this.nextStage();
               }}
             />
+            <div>Player 1 Score: {this.state.playerOneScore}</div>
+            <div>Player 2 Score: {this.state.playerTwoScore}</div>
           </div>
         )}
         {!this.state.gameIsRunning && this.state.displayGame && (
           <div>
             <h1>Game Over</h1>
             <Button onClick={this.resetGame}>New Game</Button>
+            <div>Player 1 Score: {this.state.playerOneScore}</div>
+            <div>Player 2 Score: {this.state.playerTwoScore}</div>
           </div>
         )}
         {this.state.displayLevelSelect && (
@@ -270,10 +274,6 @@ class Game extends React.Component {
             }}
           />
         )}
-        <br />
-        <br />
-        <div>Player 1 Score: {this.state.playerOneScore}</div>
-        <div>Player 2 Score: {this.state.playerTwoScore}</div>
       </div>
     );
   }

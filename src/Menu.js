@@ -45,7 +45,7 @@ class Menu extends React.Component {
   render() {
     let mainMenu = (
       <div>
-        <div className="option-select-container">
+        <div className="menu-select-container">
           <Button variant="warning" onClick={this.props.startGame}>
             Start Game
           </Button>

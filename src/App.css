@@ -17,6 +17,9 @@
   min-height: 60vh;
   min-width: 60vw;
   box-shadow: rgba(0, 0, 0, 0.8) 0em 1em 4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .main-container {
@@ -34,12 +37,21 @@
   justify-content: center;
 }
 
-.option-select-container {
+.level-select-container {
+  margin-top: 5vh;
   display: flex;
   flex-direction: column;
   gap: 1em;
   align-items: space-around;
+}
+
+.menu-select-container {
+  display: flex;
   flex-direction: column;
+  gap: 1em;
+  align-items: space-between;
+  justify-content: center;
+  align-content: center;
 }
 
 .revision {

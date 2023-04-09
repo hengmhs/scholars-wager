@@ -8,9 +8,10 @@ class Revision extends React.Component {
     super(props);
   }
   render() {
-    const words = this.props.revisionWords.map((entry, index) => {
+    const revisionWordsLocalStorage = JSON.parse(localStorage.revisionWords);
+    const words = revisionWordsLocalStorage.map((entry) => {
       return (
-        <Accordion.Item eventKey={index}>
+        <Accordion.Item eventKey={entry.id} key={entry.id}>
           <Accordion.Header>{entry.hanzi}</Accordion.Header>
           <Accordion.Body>
             <div>{entry.pinyin}</div>

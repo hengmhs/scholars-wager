@@ -24,7 +24,7 @@ class Game extends React.Component {
     // assign currChar to an object with null properties because the render() function tries to read it when the component mounts and will crash if it cannot read anything
     this.state = {
       currStage: 1,
-      currRound: 10,
+      currRound: 1,
       playerOneScore: 0,
       playerTwoScore: 0,
       currChar: {

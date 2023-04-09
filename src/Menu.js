@@ -10,7 +10,26 @@ class Menu extends React.Component {
       isMainMenu: true,
       gameIsRunning: false,
       HSKLevel: null,
-      revisionWords: [],
+      revisionWords: [
+        {
+          id: 1,
+          hanzi: "爱",
+          pinyin: "ài",
+          translations: ["to love", "affection", "to be fond of", "to like"],
+        },
+        {
+          id: 2,
+          hanzi: "八",
+          pinyin: "bā",
+          translations: ["eight", "8"],
+        },
+        {
+          id: 3,
+          hanzi: "爸爸",
+          pinyin: "bà ba",
+          translations: ["(informal) father", "CL:個|个", "位[wèi]"],
+        },
+      ],
     };
   }
 
@@ -81,7 +100,9 @@ class Menu extends React.Component {
             }}
           />
         )}
-        {this.state.isRevision && <Revision />}
+        {this.state.isRevision && (
+          <Revision revisionWords={this.state.revisionWords} />
+        )}
       </div>
     );
   }

@@ -208,7 +208,7 @@ class Game extends React.Component {
         {this.state.gameIsRunning && this.state.displayGame && (
           <div className="game">
             <div>Round {this.state.currRound} / 10</div>
-            <div>Chinese Proficiency Level {this.state.currLevel}</div>
+            <div>Proficiency Level {this.state.currLevel}</div>
             <TextDisplay
               currStage={this.state.currStage}
               currChar={this.state.currChar}

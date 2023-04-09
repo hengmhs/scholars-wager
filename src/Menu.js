@@ -71,10 +71,13 @@ class Menu extends React.Component {
           <Button variant="warning" onClick={this.props.startGame}>
             Start Game
           </Button>
-          <Button variant="secondary" onClick={this.props.startRevision}>
+          <Button
+            variant="btn btn-outline-secondary"
+            onClick={this.props.startRevision}
+          >
             Revision
           </Button>
-          <Button variant="secondary">Instructions</Button>
+          <Button variant="btn btn-outline-secondary">Instructions</Button>
         </div>
       </div>
     );

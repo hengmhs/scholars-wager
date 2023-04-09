@@ -10,7 +10,10 @@ class NextStageButtons extends React.Component {
   render() {
     return (
       (this.props.currStage === 1 || this.props.currStage === 3) && (
-        <Button onClick={this.props.nextStage}> Next Stage </Button>
+        <Button onClick={this.props.nextStage} className="btn-warning">
+          {" "}
+          Next Stage{" "}
+        </Button>
       )
     );
   }

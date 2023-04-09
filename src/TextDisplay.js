@@ -19,7 +19,9 @@ class TextDisplay extends React.Component {
   render() {
     const stage1 = (
       <div>
-        <h1>{this.props.currChar.hanzi}</h1>
+        <h1 className="chinese-character-display">
+          {this.props.currChar.hanzi}
+        </h1>
         <p>
           Stage 1/4 - Player {this.props.activePlayer} is guessing the pinyin
         </p>
@@ -28,7 +30,9 @@ class TextDisplay extends React.Component {
     const stage2 = (
       <div>
         <div>
-          <h1>{this.props.currChar.hanzi}</h1>
+          <h1 className="chinese-character-display">
+            {this.props.currChar.hanzi}
+          </h1>
           <h1>{this.props.currChar.pinyin}</h1>
           <p>
             Stage 2/4 - Player {this.props.activePlayer} is adding or removing
@@ -39,7 +43,9 @@ class TextDisplay extends React.Component {
     );
     const stage3 = (
       <div>
-        <h1>{this.props.currChar.hanzi}</h1>
+        <h1 className="chinese-character-display">
+          {this.props.currChar.hanzi}
+        </h1>
         <h1>{this.props.currChar.pinyin}</h1>
         <p>
           Stage 3/4- Player {this.props.inactivePlayer} is guessing whether
@@ -50,9 +56,13 @@ class TextDisplay extends React.Component {
     const stage4 = (
       <div>
         <div>
-          <h1>{this.props.currChar.hanzi}</h1>
+          <h1 className="chinese-character-display">
+            {this.props.currChar.hanzi}
+          </h1>
           <h1>{this.props.currChar.pinyin}</h1>
-          <h4>{this.formatTrans(this.props.currChar.translations)}</h4>
+          <h4 className="translation-display">
+            {this.formatTrans(this.props.currChar.translations)}
+          </h4>
           <p>
             Stage 4/4 - Player {this.props.activePlayer} is adding or removing
             score based on whether they guessed the meaning correctly

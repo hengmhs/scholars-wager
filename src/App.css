@@ -3,7 +3,7 @@
   background-color: #282c34;
   min-height: 100vh;
   width: 100%;
-  color: rgb(205, 202, 202);
+  color: #f4eae2;
 }
 
 .app {
@@ -16,7 +16,7 @@
   text-align: center;
   min-height: 60vh;
   min-width: 60vw;
-  box-shadow: rgba(0, 0, 0, 0.8) 0em 1em 4em;
+  box-shadow: rgba(0, 0, 0, 0.8) 0em 1em 2em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,20 +59,20 @@
 }
 
 .accordion-body:not(.collapsed) {
-  color: #ffffff;
+  color: #f4eae2;
   background-color: #282c34;
   box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
 }
 
 .accordion-button:not(.collapsed) {
-  color: #ffffff;
-  background-color: #234486;
+  color: #f4eae2;
+  background-color: #6c757d;
   box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
 }
 
 .accordion-button {
-  color: #ffffff;
-  background-color: #2e384e;
+  color: #f4eae2;
+  background-color: #282c34;
   box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
 }
 
@@ -113,4 +113,22 @@
   display: flex;
   margin-top: 5vh;
   justify-content: center;
+}
+
+.level-text {
+  margin: 2vh;
+}
+
+.btn-warning {
+  filter: brightness(85%);
+}
+
+.chinese-character-display {
+  margin: 2vh;
+}
+
+.translation-display {
+  outline: #f4eae253 solid 1px;
+  margin: 2vh;
+  padding: 1vh;
 }

@@ -1,16 +1,18 @@
 {
   "files": {
-    "main.css": "/scholars-wager/static/css/main.502ef203.css",
-    "main.js": "/scholars-wager/static/js/main.334b0629.js",
+    "main.css": "/scholars-wager/static/css/main.0ffef15d.css",
+    "main.js": "/scholars-wager/static/js/main.1b01541c.js",
     "static/js/787.9c7f7157.chunk.js": "/scholars-wager/static/js/787.9c7f7157.chunk.js",
-    "static/media/logo.svg": "/scholars-wager/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/gold-pattern-small.png": "/scholars-wager/static/media/gold-pattern-small.fa19939a9ec2fdca71f6.png",
+    "static/media/owl-portrait.png": "/scholars-wager/static/media/owl-portrait.30e7c716bac9609584aa.png",
+    "static/media/crow-portrait.png": "/scholars-wager/static/media/crow-portrait.4961b26234a460a51fff.png",
     "index.html": "/scholars-wager/index.html",
-    "main.502ef203.css.map": "/scholars-wager/static/css/main.502ef203.css.map",
-    "main.334b0629.js.map": "/scholars-wager/static/js/main.334b0629.js.map",
+    "main.0ffef15d.css.map": "/scholars-wager/static/css/main.0ffef15d.css.map",
+    "main.1b01541c.js.map": "/scholars-wager/static/js/main.1b01541c.js.map",
     "787.9c7f7157.chunk.js.map": "/scholars-wager/static/js/787.9c7f7157.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.502ef203.css",
-    "static/js/main.334b0629.js"
+    "static/css/main.0ffef15d.css",
+    "static/js/main.1b01541c.js"
   ]
 }

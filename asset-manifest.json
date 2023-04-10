@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/scholars-wager/static/css/main.4423fbbd.css",
+    "main.css": "/scholars-wager/static/css/main.8935b992.css",
     "main.js": "/scholars-wager/static/js/main.3719f372.js",
     "static/js/787.9c7f7157.chunk.js": "/scholars-wager/static/js/787.9c7f7157.chunk.js",
     "static/media/gold-pattern-small.png": "/scholars-wager/static/media/gold-pattern-small.fa19939a9ec2fdca71f6.png",
     "static/media/owl-portrait.png": "/scholars-wager/static/media/owl-portrait.30e7c716bac9609584aa.png",
     "static/media/crow-portrait.png": "/scholars-wager/static/media/crow-portrait.4961b26234a460a51fff.png",
     "index.html": "/scholars-wager/index.html",
-    "main.4423fbbd.css.map": "/scholars-wager/static/css/main.4423fbbd.css.map",
+    "main.8935b992.css.map": "/scholars-wager/static/css/main.8935b992.css.map",
     "main.3719f372.js.map": "/scholars-wager/static/js/main.3719f372.js.map",
     "787.9c7f7157.chunk.js.map": "/scholars-wager/static/js/787.9c7f7157.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4423fbbd.css",
+    "static/css/main.8935b992.css",
     "static/js/main.3719f372.js"
   ]
 }

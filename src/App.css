@@ -137,3 +137,17 @@
 .draw-text {
   margin: 2vh;
 }
+
+@media only screen and (max-width: 900px) {
+  .main-display {
+    background-color: #282c34;
+    padding: 1em;
+    text-align: center;
+    min-height: 60vh;
+    min-width: 90vw;
+    box-shadow: rgba(0, 0, 0, 0.8) 0em 1em 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

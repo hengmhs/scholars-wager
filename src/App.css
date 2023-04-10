@@ -56,17 +56,18 @@
 
 .revision {
   text-align: left;
+  font-size: large;
 }
 
 .accordion-body:not(.collapsed) {
   color: #f4eae2;
-  background-color: #282c34;
+  background-color: #191c21;
   box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
 }
 
 .accordion-button:not(.collapsed) {
-  color: #f4eae2;
-  background-color: #6c757d;
+  color: #f7bd1d;
+  background-color: #282c34;
   box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
 }
 
@@ -131,4 +132,8 @@
   outline: #f4eae253 solid 1px;
   margin: 2vh;
   padding: 1vh;
+}
+
+.draw-text {
+  margin: 2vh;
 }

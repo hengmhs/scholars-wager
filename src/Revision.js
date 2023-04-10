@@ -15,7 +15,9 @@ class Revision extends React.Component {
       words = revisionWordsLocalStorage.map((entry) => {
         return (
           <Accordion.Item eventKey={entry.id} key={entry.id}>
-            <Accordion.Header>{entry.hanzi}</Accordion.Header>
+            <Accordion.Header>
+              <h5>{entry.hanzi}</h5>
+            </Accordion.Header>
             <Accordion.Body>
               <div>
                 <b>{entry.pinyin}</b>

@@ -34,7 +34,24 @@ class GameOverScreen extends React.Component {
         </div>
       );
     } else {
-      return <div>Draw</div>;
+      return (
+        <div>
+          <div>
+            <h2 className="draw-text">Draw!</h2>
+          </div>
+          <div className="player-container">
+            <div>
+              <img src={this.props.playerOnePhoto} className="portrait"></img>
+            </div>
+            <div>
+              <img src={this.props.playerTwoPhoto} className="portrait"></img>
+            </div>
+          </div>
+          <div className="draw-text">
+            <p>Both Players Scored: {this.props.playerOneScore}</p>
+          </div>
+        </div>
+      );
     }
   }
 }

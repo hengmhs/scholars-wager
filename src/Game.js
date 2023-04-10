@@ -265,7 +265,9 @@ class Game extends React.Component {
               playerOnePhoto={owl}
               playerTwoPhoto={crow}
             />
-            <Button onClick={this.resetGame}>New Game</Button>
+            <Button onClick={this.resetGame} className="btn-warning">
+              New Game
+            </Button>
           </div>
         )}
         {this.state.displayLevelSelect && (

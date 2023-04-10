@@ -56,6 +56,7 @@ class Game extends React.Component {
     let index = Math.floor(
       Math.random() * this.state.HSKLevels[this.state.currLevel - 1].length
     );
+    console.log(`Getting index from ${this.state.currLevel}`);
     while (
       this.state.seenIds.includes(
         this.state.HSKLevels[this.state.currLevel - 1][index].id
@@ -178,10 +179,12 @@ class Game extends React.Component {
         displayGame: true,
         displayLevelSelect: false,
         currLevel: level,
-        currChar: this.getRandomChar(),
       },
       () => {
         this.addIdToSeenIds(this.state.currChar.id);
+        this.setState({
+          currChar: this.getRandomChar(),
+        });
       }
     );
   };
@@ -199,6 +202,7 @@ class Game extends React.Component {
       inactivePlayer: 2,
       wager: 1,
       seenIds: [],
+      currLevel: null,
     });
   };
 

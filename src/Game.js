@@ -17,8 +17,6 @@ import crow from "./crow-portrait.png";
 import GameOverScreen from "./GameOverScreen";
 
 class Game extends React.Component {
-  // OPTIONAL TODO: Add fireworks.js https://github.com/crashmax-dev/fireworks-js/
-
   constructor(props) {
     super(props);
     // assign currChar to an object with null properties because the render() function tries to read it when the component mounts and will crash if it cannot read anything
@@ -56,7 +54,6 @@ class Game extends React.Component {
     let index = Math.floor(
       Math.random() * this.state.HSKLevels[this.state.currLevel - 1].length
     );
-    console.log(`Getting index from ${this.state.currLevel}`);
     while (
       this.state.seenIds.includes(
         this.state.HSKLevels[this.state.currLevel - 1][index].id

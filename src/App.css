@@ -170,6 +170,13 @@
   font-size: x-large;
 }
 
+.main-menu-portrait {
+  border-radius: 50%;
+  height: 25vh;
+  width: 25vh;
+  margin: auto;
+}
+
 @media only screen and (max-width: 900px) {
   .main-display {
     background-color: #282c34;

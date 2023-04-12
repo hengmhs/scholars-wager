@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Revision from "./Revision";
 import Game from "./Game";
 import HowTo from "./HowTo";
+import Birds from "./birds-logo.png";
 
 class Menu extends React.Component {
   constructor(props) {
@@ -68,6 +69,7 @@ class Menu extends React.Component {
     let mainMenu = (
       <div>
         <div className="menu-select-container">
+          <img src={Birds} className="main-menu-portrait" />
           <h1>Scholar's Wager</h1>
           <Button variant="warning" onClick={this.props.startGame}>
             Start Game

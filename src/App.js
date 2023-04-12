@@ -13,8 +13,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 class App extends React.Component {
-  // OPTIONAL TODO: Add fireworks.js https://github.com/crashmax-dev/fireworks-js/
-
   constructor(props) {
     super(props);
     this.state = {
@@ -23,6 +21,7 @@ class App extends React.Component {
       isLevelSelectScreen: false,
       isRevision: false,
       HSKLevel: null,
+      isHowTo: false,
     };
   }
 
@@ -32,6 +31,7 @@ class App extends React.Component {
       gameIsRunning: false,
       isLevelSelectScreen: false,
       isRevision: false,
+      isHowTo: false,
     });
   };
 
@@ -48,6 +48,17 @@ class App extends React.Component {
       gameIsRunning: false,
       isLevelSelectScreen: false,
       isRevision: true,
+      isHowTo: false,
+    });
+  };
+
+  startHowTo = () => {
+    this.setState({
+      isMainMenu: false,
+      gameIsRunning: false,
+      isLevelSelectScreen: false,
+      isRevision: false,
+      isHowTo: true,
     });
   };
 
@@ -71,8 +82,11 @@ class App extends React.Component {
               isMainMenu={this.state.isMainMenu}
               gameIsRunning={this.state.gameIsRunning}
               isRevision={this.state.isRevision}
+              isHowTo={this.state.isHowTo}
               startGame={this.startGame}
               startRevision={this.startRevision}
+              startHowTo={this.startHowTo}
+              goToMainMenu={this.goToMainMenu}
             />
           </div>
         </Container>

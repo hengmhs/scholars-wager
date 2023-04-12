@@ -2,6 +2,7 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Revision from "./Revision";
 import Game from "./Game";
+import HowTo from "./HowTo";
 
 class Menu extends React.Component {
   constructor(props) {
@@ -77,7 +78,12 @@ class Menu extends React.Component {
           >
             Revision
           </Button>
-          <Button variant="btn btn-outline-secondary">Instructions</Button>
+          <Button
+            variant="btn btn-outline-secondary"
+            onClick={this.props.startHowTo}
+          >
+            How To Play
+          </Button>
         </div>
       </div>
     );
@@ -94,6 +100,7 @@ class Menu extends React.Component {
         {this.props.isRevision && (
           <Revision revisionWords={this.state.revisionWords} />
         )}
+        {this.props.isHowTo && <HowTo goToMainMenu={this.props.goToMainMenu} />}
       </div>
     );
   }

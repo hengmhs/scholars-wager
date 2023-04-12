@@ -138,6 +138,22 @@
   margin: 2vh;
 }
 
+.how-to-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin: 1em;
+}
+
+.how-to-title {
+  color: #f7bd1d;
+}
+
+.how-to-text {
+  width: 80%;
+  margin: auto;
+}
+
 @media only screen and (max-width: 900px) {
   .main-display {
     background-color: #282c34;

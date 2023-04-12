@@ -22,9 +22,17 @@ class TextDisplay extends React.Component {
         <h1 className="chinese-character-display">
           {this.props.currChar.hanzi}
         </h1>
-        <p>
-          Stage 1/4 - Player {this.props.activePlayer} is guessing the pinyin
-        </p>
+        <div>
+          <p>Stage 1/4</p>
+          <p>
+            1. Player {this.props.activePlayer} will write down or say aloud
+            what they think is the pronunciation of the word.
+          </p>
+          <p>
+            2. Player {this.props.activePlayer} will wager points from 1 - 10
+            based on their confidence of getting the pronunciation right.
+          </p>
+        </div>
       </div>
     );
     const stage2 = (
@@ -34,10 +42,14 @@ class TextDisplay extends React.Component {
             {this.props.currChar.hanzi}
           </h1>
           <h1>{this.props.currChar.pinyin}</h1>
-          <p>
-            Stage 2/4 - Player {this.props.activePlayer} is adding or removing
-            score based on whether they guessed correctly
-          </p>
+          <div>
+            <p>Stage 2/4</p>
+            <p>
+              Player {this.props.activePlayer} will add points if they got the
+              pinyin (pronunciation) right and deduct points if they got it
+              wrong.
+            </p>
+          </div>
         </div>
       </div>
     );
@@ -47,10 +59,18 @@ class TextDisplay extends React.Component {
           {this.props.currChar.hanzi}
         </h1>
         <h1>{this.props.currChar.pinyin}</h1>
-        <p>
-          Stage 3/4- Player {this.props.inactivePlayer} is guessing whether
-          Player {this.props.activePlayer} knows the meaning
-        </p>
+        <div>
+          <p>Stage 3/4</p>
+          <p>
+            1. Player {this.props.inactivePlayer} will wager points from 1 - 10
+            based on their confidence of Player {this.props.activePlayer}{" "}
+            getting the meaning right.
+          </p>{" "}
+          <p>
+            2. Player {this.props.activePlayer} will write down or say aloud
+            what they think is the meaning of the word.
+          </p>
+        </div>
       </div>
     );
     const stage4 = (

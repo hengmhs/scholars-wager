@@ -154,6 +154,22 @@
   margin: auto;
 }
 
+.revision-body {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.round-section {
+  margin: 2vh;
+  padding: 2vh;
+  background-color: #191c21;
+  margin-top: 1em;
+}
+
+.down-arrow {
+  font-size: x-large;
+}
+
 @media only screen and (max-width: 900px) {
   .main-display {
     background-color: #282c34;

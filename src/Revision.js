@@ -35,7 +35,15 @@ class Revision extends React.Component {
     return (
       <div className="revision">
         <h1>Revision</h1>
-        <Accordion alwaysOpen>{words}</Accordion>
+        <Accordion className="revision-body" alwaysOpen>
+          {words}
+        </Accordion>
+        <Button
+          onClick={this.props.goToMainMenu}
+          variant="btn btn-outline-secondary"
+        >
+          Return to Main Menu
+        </Button>
       </div>
     );
   }

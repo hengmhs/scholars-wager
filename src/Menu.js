@@ -98,7 +98,10 @@ class Menu extends React.Component {
           />
         )}
         {this.props.isRevision && (
-          <Revision revisionWords={this.state.revisionWords} />
+          <Revision
+            revisionWords={this.state.revisionWords}
+            goToMainMenu={this.props.goToMainMenu}
+          />
         )}
         {this.props.isHowTo && <HowTo goToMainMenu={this.props.goToMainMenu} />}
       </div>

@@ -30,26 +30,29 @@ class HowTo extends React.Component {
             <h3 className="how-to-title">Rounds</h3>
             <div className="how-to-text">
               A round is made up of 4 stages:
-              <p>
+              <p className="round-section">
                 <b>Stage 1:</b> The active player will wager points and guess
                 the han yu pin yin (pronunciation) of the word. The active
                 player will write down or say aloud what they think is the
                 pronunciation of the word.
               </p>
-              <p>
+              <p className="down-arrow">⬇</p>
+              <p className="round-section">
                 <b>Stage 2:</b> The active player checks if they got the
                 pronunciation right or wrong. If they get it right, they add
                 points to their score equal to the amount wagered. If they get
                 it wrong, they deduct points from their score equal to the
                 amount wagered.{" "}
               </p>
-              <p>
+              <p className="down-arrow">⬇</p>
+              <p className="round-section">
                 <b> Stage 3:</b> The non-active player will wager points and
                 guess if the active player knows the meaning of the word. The
                 active player will write down or say aloud what they think is
                 the meaning of the word.
               </p>
-              <p>
+              <p className="down-arrow">⬇</p>
+              <p className="round-section">
                 <b>Stage 4:</b> The active player checks if they got the meaning
                 right or wrong. If they get it right, they add points to their
                 score equal to the amount wagered. If they get it wrong, they

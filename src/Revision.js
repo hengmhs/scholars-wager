@@ -23,8 +23,8 @@ class Revision extends React.Component {
                 <b>{entry.pinyin}</b>
               </div>
               <ol>
-                {entry.translations.map((line) => {
-                  return <li>{line}</li>;
+                {entry.translations.map((line, index) => {
+                  return <li key={entry.id + index}>{line}</li>;
                 })}
               </ol>
             </Accordion.Body>
